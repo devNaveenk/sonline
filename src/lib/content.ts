@@ -309,12 +309,12 @@ export const payrollIntegration: IconCardItem[] = [
   {
     icon: AlertTriangle,
     title: "The Problem",
-    body: "Temporary poll worker payroll ran through manual, disconnected processes — onboarding data, hours, and pay approvals lived outside the county's actual payroll system, creating errors and delays.",
+    body: "Temporary poll worker payroll ran through manual, disconnected processes onboarding data, hours, and pay approvals lived outside the county's actual payroll system, creating errors and delays.",
   },
   {
     icon: Wrench,
     title: "The Solution",
-    body: "We connected BallotDA's Poll Worker Management module directly into the payroll and finance systems counties already use — from SAP, Oracle, and ADP to QuickBooks — automating the handoff from onboarding to final payment.",
+    body: "We connected BallotDA's Poll Worker Management module directly into the payroll and finance systems counties already use from SAP, Oracle, and ADP to QuickBooks automating the handoff from onboarding to final payment.",
   },
   {
     icon: TrendingUp,

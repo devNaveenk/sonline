@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-14 lg:py-20">
+    <article className="mx-auto max-w-3xl px-6 py-10 lg:py-14">
       <Link
         href="/blog"
         className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark cursor-pointer"

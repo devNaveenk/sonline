@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function SolutionsPage() {
   return (
     <>
-      <section className="bg-muted-bg py-14 lg:py-20">
+      <section className="bg-muted-bg py-10 lg:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-xs font-semibold tracking-widest text-primary">OUR APPROACH</p>
           <h1 className="mt-3 max-w-2xl text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
@@ -31,7 +31,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-14 lg:py-20">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {createFramework.map((step) => (
             <div
@@ -48,7 +48,7 @@ export default function SolutionsPage() {
             </div>
           ))}
         </div>
-        <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+        <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
           By aligning your applications with business objectives, our
           methodology ensures that your development resources focus on
           mission-critical projects, reducing operational silos and enabling
@@ -56,7 +56,7 @@ export default function SolutionsPage() {
         </p>
       </section>
 
-      <section className="bg-muted-bg py-14 lg:py-20">
+      <section className="bg-muted-bg py-10 lg:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-xs font-semibold tracking-widest text-primary">
             OUR SOLUTIONS
@@ -66,7 +66,7 @@ export default function SolutionsPage() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-10 max-w-7xl space-y-10 px-6">
+        <div className="mx-auto mt-8 max-w-7xl space-y-8 px-6">
           {solutionDetails.map((solution, index) => (
             <div
               key={solution.title}
@@ -114,14 +114,14 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-14 text-white lg:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-6 text-center">
-          <h2 className="max-w-xl text-2xl font-extrabold tracking-tight sm:text-3xl">
+      <section className="bg-ink py-8 text-white lg:py-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 px-6 text-center">
+          <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight sm:text-3xl">
             Ready to see which solution fits your organization?
           </h2>
           <Link
             href="/contact"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-on-primary shadow-lg shadow-primary/25 transition-colors hover:bg-primary-dark cursor-pointer"
+            className="mt-1 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-semibold text-on-primary shadow-lg shadow-primary/25 transition-colors hover:bg-primary-dark cursor-pointer"
           >
             Talk to Us
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

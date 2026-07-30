@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-muted-bg py-14 lg:py-20">
+      <section className="bg-muted-bg py-10 lg:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-xs font-semibold tracking-widest text-primary">OUR SERVICES</p>
           <h1 className="mt-3 max-w-2xl text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
@@ -29,12 +29,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-14 lg:py-20">
-        <div className="space-y-16">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
+        <div className="space-y-12">
           {serviceDetails.map((service, index) => (
             <div
               key={service.title}
-              className={`grid grid-cols-1 items-center gap-10 lg:grid-cols-2 ${
+              className={`grid grid-cols-1 items-center gap-8 lg:grid-cols-2 ${
                 index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
@@ -72,14 +72,14 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-ink py-14 text-white lg:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-6 text-center">
-          <h2 className="max-w-xl text-2xl font-extrabold tracking-tight sm:text-3xl">
+      <section className="bg-ink py-8 text-white lg:py-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 px-6 text-center">
+          <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight sm:text-3xl">
             Ready to explore how our services can move you forward?
           </h2>
           <Link
             href="/contact"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-on-primary shadow-lg shadow-primary/25 transition-colors hover:bg-primary-dark cursor-pointer"
+            className="mt-1 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-semibold text-on-primary shadow-lg shadow-primary/25 transition-colors hover:bg-primary-dark cursor-pointer"
           >
             Talk to Us
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

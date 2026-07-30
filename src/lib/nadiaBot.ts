@@ -1,74 +1,134 @@
-import { services, solutions, work, companyInfo, payrollSystems } from "./content";
+import { services, work, companyInfo, payrollSystems } from "./content";
 import { teamMembers } from "./detailPagesContent";
 
 const founder = teamMembers.find((m) => m.bio.toLowerCase().includes("founding member"));
 const cto = teamMembers.find((m) => m.role === "Chief Technology Officer");
 
+export interface BotAction {
+  label: string;
+  href: string;
+}
+
+export interface BotReply {
+  text: string;
+  action?: BotAction;
+}
+
 interface BotIntent {
   keywords: string[];
-  reply: string;
+  reply: BotReply;
 }
 
 const intents: BotIntent[] = [
   {
     keywords: ["hello", "hi", "hey", "good morning", "good afternoon"],
-    reply: "Hi there! I'm Nadia. Ask me about Sonline's services, solutions, or how to get in touch.",
+    reply: {
+      text: "Hi there! I'm Nadia. Ask me about Sonline's services, solutions, or how to get in touch.",
+    },
+  },
+  {
+    keywords: ["what is sonline", "what's sonline", "who are you", "about sonline", "company", "founded", "history"],
+    reply: { text: companyInfo.aboutParagraph },
+  },
+  {
+    keywords: ["contribut", "real world", "impact", "difference", "mission"],
+    reply: {
+      text: "Sonline has transformed 50+ organizations across education, government, and corporate sectors on 4 continents — from digitizing election operations for county governments to building AI-matched mentoring for a UN-affiliated nonprofit. We focus on measurable, lasting outcomes, not just projects.",
+      action: { label: "See Our Work", href: "/#work" },
+    },
   },
   {
     keywords: ["service", "services", "what do you do", "offer"],
-    reply: `Sonline offers: ${services.map((s) => s.title).join(", ")}. Which one would you like to know more about?`,
+    reply: {
+      text: `Sonline offers: ${services.map((s) => s.title).join(", ")}. Which one would you like to know more about?`,
+      action: { label: "View All Services", href: "/services" },
+    },
   },
   {
     keywords: ["edukadu"],
-    reply: `Edukadu is our AI/ML-driven e-learning platform for teaching, tracking, and engaging learners. Learn more at ${solutions.find((s) => s.title === "Edukadu")?.url}.`,
+    reply: {
+      text: "Edukadu is our AI/ML-driven e-learning platform for teaching, tracking, and engaging learners.",
+      action: { label: "Explore Solutions", href: "/solutions" },
+    },
   },
   {
     keywords: ["ballotda", "ballot", "election"],
-    reply: `BallotDA is our election management platform for poll worker onboarding, training, scheduling, and payroll handoff. Learn more at ${solutions.find((s) => s.title === "BallotDA")?.url}.`,
+    reply: {
+      text: "BallotDA is our election management platform for poll worker onboarding, training, scheduling, and payroll handoff.",
+      action: { label: "Explore Solutions", href: "/solutions" },
+    },
   },
   {
     keywords: ["payroll", "sap", "oracle", "adp", "quickbooks"],
-    reply: `We've integrated BallotDA's payroll data with systems including ${payrollSystems.join(", ")} — automating the handoff from onboarding to final payment.`,
+    reply: {
+      text: `We've integrated BallotDA's payroll data with systems including ${payrollSystems.join(", ")} — automating the handoff from onboarding to final payment.`,
+      action: { label: "See This Project", href: "/#featured-project" },
+    },
   },
   {
     keywords: ["price", "pricing", "cost", "quote"],
-    reply: "Pricing depends on the scope of your project. Head to our Contact page and someone from our team will follow up with a custom quote.",
+    reply: {
+      text: "Pricing depends on the scope of your project. Head to our Contact page and someone from our team will follow up with a custom quote.",
+      action: { label: "Contact Us", href: "/contact" },
+    },
   },
   {
-    keywords: ["contact", "email", "phone", "call", "reach"],
-    reply: `You can reach us at ${companyInfo.email} or ${companyInfo.phone}. We're based at ${companyInfo.hq}.`,
+    keywords: ["contact", "email", "phone", "call", "reach", "get in touch"],
+    reply: {
+      text: `You can reach us at ${companyInfo.email} or ${companyInfo.phone}. We're based at ${companyInfo.hq}.`,
+      action: { label: "Contact Us", href: "/contact" },
+    },
   },
   {
     keywords: ["location", "address", "where are you", "headquarters", "hq"],
-    reply: `Our headquarters: ${companyInfo.hq}.`,
+    reply: { text: `Our headquarters: ${companyInfo.hq}.` },
   },
   {
-    keywords: ["founder", "who started", "who created", "ceo", "leadership", "who runs"],
-    reply: founder
-      ? `Sonline was founded in 2015. ${founder.name} (${founder.role}) is one of our founding members, bringing 30+ years of industry experience and C-level advisory on IT strategy and execution.${cto ? ` ${cto.name} serves as our ${cto.role}, leading our Digital Transformation business.` : ""}`
-      : companyInfo.aboutParagraph,
+    keywords: ["founder", "who started", "who created", "ceo", "who runs"],
+    reply: {
+      text: founder
+        ? `Sonline was founded in 2015. ${founder.name} (${founder.role}) is one of our founding members, bringing 30+ years of industry experience and C-level advisory on IT strategy and execution.${cto ? ` ${cto.name} serves as our ${cto.role}, leading our Digital Transformation business.` : ""}`
+        : companyInfo.aboutParagraph,
+      action: { label: "Meet the Team", href: "/culture" },
+    },
   },
   {
-    keywords: ["team", "who works", "employees", "staff"],
-    reply: `Our team includes ${teamMembers
-      .slice(0, 4)
-      .map((m) => `${m.name} (${m.role})`)
-      .join(", ")}, and more. Visit the Culture page to meet everyone.`,
+    keywords: ["team", "who works", "employees", "staff", "leadership"],
+    reply: {
+      text: `Our team includes ${teamMembers
+        .slice(0, 4)
+        .map((m) => `${m.name} (${m.role})`)
+        .join(", ")}, and more.`,
+      action: { label: "Meet the Team", href: "/culture" },
+    },
   },
   {
-    keywords: ["about", "who are you", "company", "founded", "history"],
-    reply: companyInfo.aboutParagraph,
+    keywords: ["culture", "values"],
+    reply: {
+      text: "We're built on six values: Endurance, Courage, Persistence, Diligence, Tranquility, and Empathy — every engagement is guided by them.",
+      action: { label: "See Our Culture", href: "/culture" },
+    },
+  },
+  {
+    keywords: ["blog", "article", "insight"],
+    reply: {
+      text: "We publish articles on digital transformation, AI, GovTech, and leadership, plus personal insights from our team.",
+      action: { label: "Read Our Blog", href: "/blog" },
+    },
   },
   {
     keywords: ["work", "case study", "case studies", "project", "portfolio"],
-    reply: `A few things we've built: ${work
-      .slice(0, 3)
-      .map((w) => w.title)
-      .join("; ")}. Check the "Our Work" section for the full list.`,
+    reply: {
+      text: `A few things we've built: ${work
+        .slice(0, 3)
+        .map((w) => w.title)
+        .join("; ")}.`,
+      action: { label: "See Our Work", href: "/#work" },
+    },
   },
   {
     keywords: ["thank", "thanks"],
-    reply: "You're welcome! Anything else I can help with?",
+    reply: { text: "You're welcome! Anything else I can help with?" },
   },
 ];
 
@@ -76,7 +136,7 @@ const intents: BotIntent[] = [
  * Fast, deterministic keyword match — runs instantly with no network call.
  * Only when this returns null do we fall back to the slower AI layer.
  */
-export function matchBotIntent(message: string): string | null {
+export function matchBotIntent(message: string): BotReply | null {
   const lower = message.toLowerCase();
   for (const intent of intents) {
     if (intent.keywords.some((keyword) => lower.includes(keyword))) {

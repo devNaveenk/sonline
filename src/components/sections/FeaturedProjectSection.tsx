@@ -17,8 +17,8 @@ export function FeaturedProjectSection() {
             Election offices manage thousands of temporary poll workers per
             cycle. We integrated BallotDA&apos;s poll worker payroll data
             directly with the payroll and finance systems counties already run
-            on — from large enterprise platforms to small-office accounting
-            tools — turning a manual, error-prone handoff into an automated,
+            on from large enterprise platforms to small-office accounting
+            tools turning a manual, error-prone handoff into an automated,
             audit-ready pipeline.
           </p>
 

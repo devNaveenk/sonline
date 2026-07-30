@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { cultureValues, teamMembers } from "@/lib/detailPagesContent";
 
 export const metadata: Metadata = {
@@ -13,7 +11,7 @@ export const metadata: Metadata = {
 export default function CulturePage() {
   return (
     <>
-      <section className="bg-muted-bg py-14 lg:py-20">
+      <section className="bg-muted-bg py-10 lg:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-xs font-semibold tracking-widest text-primary">CULTURE @ SONLINE</p>
           <h1 className="mt-3 max-w-2xl text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
@@ -23,7 +21,7 @@ export default function CulturePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-14 lg:py-20">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cultureValues.map((value) => (
             <div
@@ -50,7 +48,7 @@ export default function CulturePage() {
         </div>
       </section>
 
-      <section className="bg-muted-bg py-14 lg:py-20">
+      <section className="bg-muted-bg py-10 lg:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-xs font-semibold tracking-widest text-primary">
             DEVELOPMENT LIFECYCLE
@@ -72,12 +70,12 @@ export default function CulturePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-14 lg:py-20">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
         <p className="text-xs font-semibold tracking-widest text-primary">OUR TEAM</p>
         <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
           The people behind every transformation.
         </h2>
-        <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
           {teamMembers.map((member) => (
             <div key={member.name} className="text-center">
               <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full bg-muted-bg">
@@ -96,21 +94,6 @@ export default function CulturePage() {
               </p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-ink py-14 text-white lg:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-6 text-center">
-          <h2 className="max-w-xl text-2xl font-extrabold tracking-tight sm:text-3xl">
-            Schedule your free consultation.
-          </h2>
-          <Link
-            href="/contact"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-on-primary shadow-lg shadow-primary/25 transition-colors hover:bg-primary-dark cursor-pointer"
-          >
-            Talk to Us
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
         </div>
       </section>
     </>

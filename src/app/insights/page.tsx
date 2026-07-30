@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function InsightsPage() {
   return (
     <>
-      <section className="bg-muted-bg py-14 lg:py-20">
+      <section className="bg-muted-bg py-10 lg:py-14">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-xs font-semibold tracking-widest text-primary">INSIGHTS</p>
           <h1 className="mt-3 max-w-2xl text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
@@ -22,7 +22,7 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-14 lg:py-20">
+      <section className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {insightPosts.map((post) => (
             <Link

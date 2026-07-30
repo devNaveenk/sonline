@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   Send,
@@ -8,18 +9,20 @@ import {
   RotateCcw,
   Sparkles,
   ChevronRight,
+  ArrowRight,
   Workflow,
   CheckSquare,
   GraduationCap,
   Mail,
   type LucideIcon,
 } from "lucide-react";
-import { matchBotIntent } from "@/lib/nadiaBot";
+import { matchBotIntent, type BotAction } from "@/lib/nadiaBot";
 
 interface ChatMessage {
   id: number;
   from: "nadia" | "user";
   text: string;
+  action?: BotAction;
 }
 
 const INITIAL_MESSAGE: ChatMessage = {
@@ -69,7 +72,10 @@ export default function NadiaChatWidget() {
     // Bot layer: instant, deterministic, zero network latency.
     const botReply = matchBotIntent(text);
     if (botReply) {
-      setMessages((prev) => [...prev, { id: prev.length, from: "nadia", text: botReply }]);
+      setMessages((prev) => [
+        ...prev,
+        { id: prev.length, from: "nadia", text: botReply.text, action: botReply.action },
+      ]);
       return;
     }
 
@@ -118,7 +124,7 @@ export default function NadiaChatWidget() {
       }`}
     >
       {isOpen && (
-        <div className="mb-4 flex h-[30rem] w-[22rem] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl">
+        <div className="mb-4 flex h-[30rem] max-h-[calc(100vh-8rem)] w-[22rem] max-w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl">
           <div className="flex items-center justify-between bg-ink px-4 py-3">
             <div className="flex items-center gap-3">
               <div className="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-primary/40">
@@ -168,15 +174,26 @@ export default function NadiaChatWidget() {
                     <Image src="/Nadia.png" alt="" fill sizes="28px" className="object-cover" />
                   </div>
                 )}
-                <p
-                  className={`max-w-[78%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
-                    message.from === "user"
-                      ? "bg-primary text-on-primary"
-                      : "border border-border bg-white text-ink"
-                  }`}
-                >
-                  {message.text}
-                </p>
+                <div className="flex max-w-[78%] flex-col gap-2">
+                  <p
+                    className={`rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
+                      message.from === "user"
+                        ? "bg-primary text-on-primary"
+                        : "border border-border bg-white text-ink"
+                    }`}
+                  >
+                    {message.text}
+                  </p>
+                  {message.action && (
+                    <Link
+                      href={message.action.href}
+                      className="inline-flex items-center gap-1.5 self-start rounded-full bg-primary px-3.5 py-2 text-xs font-semibold text-on-primary transition-colors hover:bg-primary-dark cursor-pointer"
+                    >
+                      {message.action.label}
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  )}
+                </div>
               </div>
             ))}
 

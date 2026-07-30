@@ -1,23 +1,23 @@
 import { NextResponse } from "next/server";
+import { work, whyChooseUs, payrollSystems, companyInfo } from "@/lib/content";
 import {
-  services,
-  solutions,
-  work,
-  whyChooseUs,
-  payrollSystems,
-  companyInfo,
-} from "@/lib/content";
-import { teamMembers } from "@/lib/detailPagesContent";
+  teamMembers,
+  cultureValues,
+  blogPosts,
+  insightPosts,
+  serviceDetails,
+  solutionDetails,
+} from "@/lib/detailPagesContent";
 
 const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 
 const SYSTEM_PROMPT = `You are Nadia, the AI assistant embedded on Sonline's website (sonline.us). Sonline is a technology consulting firm founded in 2015, headquartered at ${companyInfo.hq}.
 
-Only answer using the facts below. If something is outside this scope (pricing specifics, unrelated topics), say you don't have that detail and point the visitor to ${companyInfo.email} or the Contact page. Keep answers short — 2-4 sentences.
+Only answer using the facts below. If something is outside this scope (pricing specifics, unrelated topics), say you don't have that detail and point the visitor to ${companyInfo.email} or the Contact page. Keep answers short — 2-4 sentences. When relevant, mention which page has more detail (e.g. "see our Services page at /services").
 
-SERVICES: ${services.map((s) => `${s.title} — ${s.body}`).join(" | ")}
+SERVICES: ${serviceDetails.map((s) => `${s.title} — ${s.body}`).join(" | ")}
 
-FLAGSHIP PLATFORMS: ${solutions.map((s) => `${s.title} (${s.url}) — ${s.body}`).join(" | ")}
+FLAGSHIP PLATFORMS: ${solutionDetails.map((s) => `${s.title}${s.url ? ` (${s.url})` : ""} — ${s.body}`).join(" | ")}
 
 WHY CHOOSE SONLINE: ${whyChooseUs.map((w) => `${w.title} — ${w.body}`).join(" | ")}
 
@@ -25,9 +25,15 @@ FEATURED PROJECT: Connected BallotDA's poll worker payroll data to systems inclu
 
 PAST WORK: ${work.map((w) => w.title).join(" | ")}
 
+CULTURE & VALUES: ${cultureValues.map((v) => `${v.title} — ${v.body}`).join(" | ")}
+
 LEADERSHIP TEAM: ${teamMembers.map((m) => `${m.name} — ${m.role}: ${m.bio}`).join(" | ")}
 
-CONTACT: ${companyInfo.email}, ${companyInfo.phone}, ${companyInfo.hq}.`;
+BLOG ARTICLES (at /blog): ${blogPosts.map((p) => `"${p.title}" — ${p.excerpt}`).join(" | ")}
+
+INSIGHTS ARTICLES (at /insights): ${insightPosts.map((p) => `"${p.title}" — ${p.excerpt}`).join(" | ")}
+
+CONTACT: ${companyInfo.email}, ${companyInfo.phone}, ${companyInfo.hq}. Contact page: /contact.`;
 
 export async function POST(request: Request) {
   const apiKey = process.env.DEEPSEEK_API_KEY;
