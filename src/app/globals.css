@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #2f54eb;
+  --color-primary-dark: #1e3fc4;
+  --color-on-primary: #ffffff;
+  --color-ink: #0f1222;
+  --color-dark-surface: #0b1029;
+  --color-dark-surface-2: #131a3a;
+  --color-background: #ffffff;
+  --color-muted-bg: #f6f7fb;
+  --color-foreground: #0f1222;
+  --color-muted-foreground: #5b6072;
+  --color-border: #e7e9f2;
+  --color-accent: #16a34a;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-on-primary: var(--color-on-primary);
+  --color-ink: var(--color-ink);
+  --color-dark-surface: var(--color-dark-surface);
+  --color-dark-surface-2: var(--color-dark-surface-2);
+  --color-background: var(--color-background);
+  --color-muted-bg: var(--color-muted-bg);
+  --color-foreground: var(--color-foreground);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-border: var(--color-border);
+  --color-accent: var(--color-accent);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
