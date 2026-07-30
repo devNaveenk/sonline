@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { solutions } from "@/lib/content";
@@ -33,6 +34,13 @@ export function SolutionsSection() {
             </div>
           ))}
         </div>
+        <Link
+          href="/solutions"
+          className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark cursor-pointer"
+        >
+          View all solutions
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
       </div>
     </section>
   );

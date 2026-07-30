@@ -27,12 +27,11 @@ import type {
 } from "./types";
 
 export const nav: NavItem[] = [
-  { label: "Why Sonline", href: "/#why-sonline" },
-  { label: "Pillars", href: "/#pillars" },
-  { label: "Services", href: "/#services" },
-  { label: "Solutions", href: "/#solutions" },
-  { label: "Featured Project", href: "/#featured-project" },
-  { label: "Work", href: "/#work" },
+  { label: "Insights", href: "/insights" },
+  { label: "Services", href: "/services" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Culture", href: "/culture" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

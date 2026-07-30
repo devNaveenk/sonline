@@ -7,6 +7,7 @@ import {
   payrollSystems,
   companyInfo,
 } from "@/lib/content";
+import { teamMembers } from "@/lib/detailPagesContent";
 
 const DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions";
 
@@ -23,6 +24,8 @@ WHY CHOOSE SONLINE: ${whyChooseUs.map((w) => `${w.title} — ${w.body}`).join(" 
 FEATURED PROJECT: Connected BallotDA's poll worker payroll data to systems including ${payrollSystems.join(", ")}.
 
 PAST WORK: ${work.map((w) => w.title).join(" | ")}
+
+LEADERSHIP TEAM: ${teamMembers.map((m) => `${m.name} — ${m.role}: ${m.bio}`).join(" | ")}
 
 CONTACT: ${companyInfo.email}, ${companyInfo.phone}, ${companyInfo.hq}.`;
 

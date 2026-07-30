@@ -1,4 +1,8 @@
 import { services, solutions, work, companyInfo, payrollSystems } from "./content";
+import { teamMembers } from "./detailPagesContent";
+
+const founder = teamMembers.find((m) => m.bio.toLowerCase().includes("founding member"));
+const cto = teamMembers.find((m) => m.role === "Chief Technology Officer");
 
 interface BotIntent {
   keywords: string[];
@@ -37,6 +41,19 @@ const intents: BotIntent[] = [
   {
     keywords: ["location", "address", "where are you", "headquarters", "hq"],
     reply: `Our headquarters: ${companyInfo.hq}.`,
+  },
+  {
+    keywords: ["founder", "who started", "who created", "ceo", "leadership", "who runs"],
+    reply: founder
+      ? `Sonline was founded in 2015. ${founder.name} (${founder.role}) is one of our founding members, bringing 30+ years of industry experience and C-level advisory on IT strategy and execution.${cto ? ` ${cto.name} serves as our ${cto.role}, leading our Digital Transformation business.` : ""}`
+      : companyInfo.aboutParagraph,
+  },
+  {
+    keywords: ["team", "who works", "employees", "staff"],
+    reply: `Our team includes ${teamMembers
+      .slice(0, 4)
+      .map((m) => `${m.name} (${m.role})`)
+      .join(", ")}, and more. Visit the Culture page to meet everyone.`,
   },
   {
     keywords: ["about", "who are you", "company", "founded", "history"],

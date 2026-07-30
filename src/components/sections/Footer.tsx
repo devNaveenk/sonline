@@ -33,16 +33,20 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" className="hover:text-white">
+                  <Link href="/services" className="hover:text-white">
                     Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#solutions" className="hover:text-white">
+                  <Link href="/solutions" className="hover:text-white">
                     Solutions
                   </Link>
                 </li>
-                <li>Culture</li>
+                <li>
+                  <Link href="/culture" className="hover:text-white">
+                    Culture
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -50,6 +54,16 @@ export function Footer() {
                 MORE
               </p>
               <ul className="mt-4 space-y-2.5 text-sm">
+                <li>
+                  <Link href="/insights" className="hover:text-white">
+                    Insights
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="hover:text-white">
+                    Blog
+                  </Link>
+                </li>
                 <li>
                   <Link href="/contact" className="hover:text-white">
                     Contact
