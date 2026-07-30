@@ -249,12 +249,12 @@ export default function NadiaChatWidget() {
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label={isOpen ? "Close Nadia chat" : "Ask Nadia"}
-          className="relative h-[48.4px] w-[48.4px] shrink-0 rounded-full shadow-xl ring-2 ring-primary transition-transform hover:scale-105 cursor-pointer"
+          className="relative h-[55.7px] w-[55.7px] shrink-0 rounded-full shadow-xl ring-2 ring-primary transition-transform hover:scale-105 cursor-pointer"
         >
           <span className="relative block h-full w-full overflow-hidden rounded-full">
-            <Image src="/Nadia.png" alt="Nadia" fill sizes="49px" className="object-cover" />
+            <Image src="/Nadia.png" alt="Nadia" fill sizes="56px" className="object-cover" />
           </span>
-          <span className="absolute bottom-0 right-0 h-[13.2px] w-[13.2px] rounded-full border-2 border-white bg-emerald-400" />
+          <span className="absolute bottom-0 right-0 h-[15.2px] w-[15.2px] rounded-full border-2 border-white bg-emerald-400" />
         </button>
       </div>
     </div>
