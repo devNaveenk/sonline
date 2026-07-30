@@ -10,13 +10,14 @@ export function FeaturedProjectSection() {
             FEATURED PROJECT
           </span>
           <h2 className="mt-5 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Connecting BallotDA to Enterprise Payroll Systems
+            Connecting BallotDA to Payroll & Finance Systems
           </h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">
             Election offices manage thousands of temporary poll workers per
             cycle. We integrated BallotDA&apos;s poll worker payroll data
-            directly with the enterprise payroll systems counties already run
-            on — turning a manual, error-prone handoff into an automated,
+            directly with the payroll and finance systems counties already run
+            on — from large enterprise platforms to small-office accounting
+            tools — turning a manual, error-prone handoff into an automated,
             audit-ready pipeline.
           </p>
 

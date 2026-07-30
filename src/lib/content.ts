@@ -189,6 +189,7 @@ export const work: WorkItem[] = [
   {
     title: "Cloud Migration and Intelligent Document Processing",
     body: "New age cloud OMS solution replacing a legacy system for order management and intelligent document processing with seamless DocuSign integration.",
+    systems: ["DocuSign"],
   },
   {
     title: "Election Worker Management and Payroll Processing",
@@ -229,7 +230,7 @@ export const payrollIntegration: IconCardItem[] = [
   {
     icon: Wrench,
     title: "The Solution",
-    body: "We connected BallotDA's Poll Worker Management module directly into enterprise payroll systems — SAP, Oracle, and ADP — automating the handoff from onboarding to final payment.",
+    body: "We connected BallotDA's Poll Worker Management module directly into the payroll and finance systems counties already use — from SAP, Oracle, and ADP to QuickBooks — automating the handoff from onboarding to final payment.",
   },
   {
     icon: TrendingUp,
@@ -238,7 +239,7 @@ export const payrollIntegration: IconCardItem[] = [
   },
 ];
 
-export const payrollSystems: string[] = ["SAP", "Oracle", "ADP", "AMS"];
+export const payrollSystems: string[] = ["SAP", "Oracle", "ADP", "AMS", "QuickBooks"];
 
 export const companyInfo = {
   email: "support@sonline.us",

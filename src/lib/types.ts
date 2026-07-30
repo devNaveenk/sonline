@@ -30,4 +30,5 @@ export interface TestimonialItem {
 export interface WorkItem {
   title: string;
   body: string;
+  systems?: string[];
 }

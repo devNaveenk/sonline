@@ -21,6 +21,18 @@ export function WorkSection() {
             <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
               {item.body}
             </p>
+            {item.systems && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {item.systems.map((system) => (
+                  <span
+                    key={system}
+                    className="rounded-md bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary"
+                  >
+                    {system}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
