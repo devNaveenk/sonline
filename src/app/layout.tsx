@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
+import { Header } from "@/components/sections/Header";
+import { Footer } from "@/components/sections/Footer";
 import NadiaChatWidget from "@/components/NadiaChatWidget";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import "./globals.css";
 
 const inter = Inter({
@@ -23,8 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        {children}
+        <AnnouncementBar />
+        <Header />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
+        <Footer />
         <NadiaChatWidget />
+        <CookieConsentBanner />
       </body>
     </html>
   );

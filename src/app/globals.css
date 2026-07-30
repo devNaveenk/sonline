@@ -64,3 +64,11 @@ html {
 .animate-marquee {
   animation: marquee 18s linear infinite;
 }
+
+.animate-marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}

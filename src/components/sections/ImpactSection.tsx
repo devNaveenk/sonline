@@ -1,5 +1,5 @@
 import { StatGrid } from "@/components/ui/StatGrid";
-import { stats, testimonials } from "@/lib/content";
+import { stats } from "@/lib/content";
 
 export function ImpactSection() {
   return (
@@ -20,23 +20,6 @@ export function ImpactSection() {
         </p>
 
         <StatGrid stats={stats} tone="dark" size="lg" />
-
-        <p className="mt-12 text-xs font-semibold tracking-widest text-primary">
-          CLIENT REVIEWS
-        </p>
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {testimonials.map((t) => (
-            <figure key={t.name} className="rounded-2xl bg-dark-surface-2 p-7">
-              <blockquote className="text-sm leading-relaxed text-white/80">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-5 border-t border-white/10 pt-4">
-                <p className="text-sm font-semibold text-white">{t.name}</p>
-                <p className="text-xs text-white/50">{t.role}</p>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
       </div>
     </section>
   );

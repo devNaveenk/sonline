@@ -19,12 +19,15 @@ export interface StatItem {
 export interface SolutionItem {
   title: string;
   body: string;
+  url: string;
 }
 
 export interface TestimonialItem {
   quote: string;
   name: string;
   role: string;
+  organization: string;
+  logo: string;
 }
 
 export interface WorkItem {

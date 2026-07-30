@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { stats, heroCapabilities } from "@/lib/content";
 
@@ -27,13 +28,13 @@ export function Hero() {
             every phase of your journey.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-on-primary shadow-lg shadow-primary/25 transition-colors hover:bg-primary-dark cursor-pointer"
             >
               Talk to Us
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </Link>
             <a
               href="#services"
               className="inline-flex h-12 items-center justify-center rounded-lg border border-border bg-white px-6 text-sm font-semibold text-ink transition-colors hover:border-ink cursor-pointer"

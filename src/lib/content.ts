@@ -27,13 +27,13 @@ import type {
 } from "./types";
 
 export const nav: NavItem[] = [
-  { label: "Why Sonline", href: "#why-sonline" },
-  { label: "Pillars", href: "#pillars" },
-  { label: "Services", href: "#services" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Featured Project", href: "#featured-project" },
-  { label: "Work", href: "#work" },
-  { label: "Contact", href: "#contact" },
+  { label: "Why Sonline", href: "/#why-sonline" },
+  { label: "Pillars", href: "/#pillars" },
+  { label: "Services", href: "/#services" },
+  { label: "Solutions", href: "/#solutions" },
+  { label: "Featured Project", href: "/#featured-project" },
+  { label: "Work", href: "/#work" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const whyChooseUs: IconCardItem[] = [
@@ -109,15 +109,17 @@ export const solutions: SolutionItem[] = [
   {
     title: "Edukadu",
     body: "AI/ML-driven e-learning platform engineered to modernize how institutions teach, track, and engage learners.",
+    url: "https://www.edukadu.com",
   },
   {
     title: "BallotDA",
     body: "Election management platform handling poll worker onboarding, training, scheduling, and secure payroll handoff.",
+    url: "https://ballotda.com",
   },
 ];
 
 export const stats: StatItem[] = [
-  { value: "50+", label: "Organizations transformed" },
+  { value: "100+", label: "Organizations transformed" },
   { value: "25+", label: "Years of global IT depth" },
   { value: "4", label: "Continents reached" },
 ];
@@ -172,12 +174,95 @@ export const testimonials: TestimonialItem[] = [
       "BallotDA has revolutionized our poll management system in Fulton County. With its user-friendly interface and comprehensive tools, we've seamlessly managed onboarding, training, precinct assignments for our poll workers and payroll handoff, all while ensuring the confidentiality and security of our poll workers' information. Thanks to BallotDA, our operations have become more efficient and transparent.",
     name: "Fulton County Elections",
     role: "Poll Worker Management",
+    organization: "Fulton County, GA",
+    logo: "/clients/fulton.png",
   },
   {
     quote:
       "Sonline helped us with a new website for our Epstein School. Suri led the efforts and helped us create the new one. His team was very responsive and engaged throughout the whole process. We will engage them again for special projects.",
     name: "Aaron Griffin",
     role: "Head of Technology",
+    organization: "Epstein School",
+    logo: "/clients/epsteinschool.png",
+  },
+  {
+    quote:
+      "We were looking for a simple solution that would optimize costs, reduce complexity, decrease service tickets and increase productivity. The solution provided by Sonline was a perfect match for us. We are impressed!",
+    name: "Bill Justesen",
+    role: "Director of Information Technology",
+    organization: "City of Osawatomie",
+    logo: "/clients/city_of_osawatomie.png",
+  },
+  {
+    quote:
+      "Sonline team has played an important role as technology advisor and partner to assist in projects like ERP, customer ROI, etc. Their technical acumen, attention to detail, responsiveness, and ability to execute within budgets, were of immense value to Sortimo.",
+    name: "Mahendra Srivastava",
+    role: "Technology Director",
+    organization: "Sortimo",
+    logo: "/clients/sortimo.png",
+  },
+  {
+    quote:
+      "The communication tools within BallotDA are another game-changer. We can easily send updates and reminders to our poll workers via email, which helps to keep everyone informed and on the same page. This has drastically reduced no-shows and misunderstandings, leading to a smoother election day operation.",
+    name: "Nadine Williams",
+    role: "Director of Registration and Elections",
+    organization: "Fulton County, GA",
+    logo: "/clients/fulton.png",
+  },
+  {
+    quote:
+      "It is and has been a great pleasure working with Suri and team. I look forward to many more years with him and his company providing IT professional services.",
+    name: "William Sperin",
+    role: "Technology Director",
+    organization: "White County",
+    logo: "/clients/whitecountyschool.png",
+  },
+  {
+    quote:
+      "Suri from Sonline has been a fantastic asset to SSL for the last four years. They have assisted us in cyber security, infrastructure upgrades, digital transformation, and mobile apps. He continues as our go-to consultant in all IT related matters and keeps us at the leading edge of this fast-changing field.",
+    name: "Raj Anand",
+    role: "Technology Director",
+    organization: "Southern States LLC",
+    logo: "/clients/southerstates.png",
+  },
+  {
+    quote: "Suri from Sonline has been great to work with and provides great service.",
+    name: "Clark Rainer",
+    role: "CIO, Dept of Law",
+    organization: "Office of the Attorney General",
+    logo: "/clients/office_of_the_attorney_general.png",
+  },
+  {
+    quote:
+      "Sonline proved to be an exceptional partner in our cloud migration journey, particularly when it came to transitioning from a legacy application. We seamlessly migrated from a traditional order management system to a mobile-friendly, AWS-hosted cloud OMS — achieving a faster, cleaner, and highly efficient solution.",
+    name: "Todd Wade",
+    role: "Vice President",
+    organization: "ARCO",
+    logo: "/clients/arco.jpg",
+  },
+  {
+    quote:
+      "Working with Sonline has been an exceptional experience. From the beginning, their team took the time to truly understand our needs, goals, and long-term vision for the Energy Career Navigator (ECN), consistently going above and beyond with thorough research and thoughtful recommendations.",
+    name: "Cynthia Brown",
+    role: "Chief Executive Officer",
+    organization: "IWM Energy",
+    logo: "/clients/energy.png",
+  },
+  {
+    quote:
+      "Sonline has been able to digitize our mentoring relationships and programming. We now feel we are finally on our way to being able to manage, track, and storytell on the young people we are mentoring — both individually and as a whole.",
+    name: "Phillip Scroggin",
+    role: "Operations Director",
+    organization: "XCEL — A Mentoring Network",
+    logo: "/clients/xcel.png",
+  },
+  {
+    quote:
+      "BallotDA's continued sponsorship and exceptional support of our statewide conferences has played a key role in making these events successful. Their impact goes far beyond sponsorship — they show a true commitment to advancing the field of election management.",
+    name: "Florida Supervisors of Elections",
+    role: "Statewide Election Conference",
+    organization: "Florida Supervisors of Elections",
+    logo: "/clients/florida_supervisors_of_election.png",
   },
 ];
 
@@ -241,8 +326,18 @@ export const payrollIntegration: IconCardItem[] = [
 
 export const payrollSystems: string[] = ["SAP", "Oracle", "ADP", "AMS", "QuickBooks"];
 
+export const interestOptions: string[] = [
+  "Digital Transformation",
+  "AI & Data Analytics",
+  "Custom Platforms (Edukadu / BallotDA)",
+  "Business Process Optimization",
+  "Strategic Advisory",
+  "Something else",
+];
+
 export const companyInfo = {
   email: "support@sonline.us",
+  phone: "+1 937-343-5697",
   linkedinUrl: "https://www.linkedin.com/company/sonline",
   hq: "130 Technology Pkwy, Peachtree Corners, GA 30092",
   aboutParagraph:

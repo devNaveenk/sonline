@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { companyInfo } from "@/lib/content";
 
 export function Footer() {
@@ -27,19 +28,19 @@ export function Footer() {
               </p>
               <ul className="mt-4 space-y-2.5 text-sm">
                 <li>
-                  <a href="#work" className="hover:text-white">
+                  <Link href="/#work" className="hover:text-white">
                     Work
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-white">
+                  <Link href="/#services" className="hover:text-white">
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#solutions" className="hover:text-white">
+                  <Link href="/#solutions" className="hover:text-white">
                     Solutions
-                  </a>
+                  </Link>
                 </li>
                 <li>Culture</li>
               </ul>
@@ -50,9 +51,9 @@ export function Footer() {
               </p>
               <ul className="mt-4 space-y-2.5 text-sm">
                 <li>
-                  <a href="#contact" className="hover:text-white">
+                  <Link href="/contact" className="hover:text-white">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -63,7 +64,9 @@ export function Footer() {
           <div className="flex gap-6">
             <span>Privacy</span>
             <span>Terms</span>
-            <span>Cookies</span>
+            <Link href="/cookies" className="hover:text-white">
+              Cookies
+            </Link>
           </div>
         </div>
       </div>

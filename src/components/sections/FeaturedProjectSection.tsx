@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { payrollIntegration, payrollSystems } from "@/lib/content";
 
@@ -48,13 +49,13 @@ export function FeaturedProjectSection() {
             ))}
           </div>
 
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="mt-12 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-semibold text-on-primary transition-colors hover:bg-primary-dark cursor-pointer"
           >
             Talk to Us About This Project
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
