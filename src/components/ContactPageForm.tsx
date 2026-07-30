@@ -5,12 +5,43 @@ import { ArrowRight } from "lucide-react";
 import { interestOptions } from "@/lib/content";
 
 export default function ContactPageForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
-    window.setTimeout(() => setStatus("sent"), 600);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      workEmail: formData.get("workEmail"),
+      organization: formData.get("organization"),
+      interest: formData.get("interest"),
+      details: formData.get("details"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMessage(data.error ?? "Something went wrong. Please try again.");
+        setStatus("error");
+        return;
+      }
+
+      setStatus("sent");
+    } catch {
+      setErrorMessage("Something went wrong. Please try again or email us directly.");
+      setStatus("error");
+    }
   }
 
   if (status === "sent") {
@@ -34,6 +65,14 @@ export default function ContactPageForm() {
       onSubmit={handleSubmit}
       className="grid grid-cols-1 gap-5 rounded-2xl border border-border bg-white p-6 sm:grid-cols-2 sm:p-8"
     >
+      {status === "error" && (
+        <p
+          role="alert"
+          className="sm:col-span-2 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+        >
+          {errorMessage}
+        </p>
+      )}
       <div className="flex flex-col gap-1.5">
         <label htmlFor="firstName" className="text-xs font-semibold tracking-wide text-muted-foreground">
           FIRST NAME
