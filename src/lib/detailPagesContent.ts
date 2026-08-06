@@ -88,7 +88,7 @@ export const solutionDetails: SolutionDetail[] = [
     title: "Edukadu",
     body: "A comprehensive SaaS platform supporting DEI and e-Mentoring programs with tools for workforce training, secure communication, event management, and compliance with GDPR/CCPA. It integrates mentoring, surveys, scheduling, and payments while enabling organizations to manage programs, templates, and metrics in a customizable and user-friendly interface.",
     logo: "/solutions/edukadu-logo.png",
-    image: "/solutions/digital-transformation-bg.png",
+    image: "/solutions/digital-transformation-bg.jpg",
     url: "https://www.edukadu.com",
   },
   {
@@ -108,7 +108,7 @@ export const solutionDetails: SolutionDetail[] = [
     title: "OMS Flow",
     body: "An AI-powered workspace centralizing all your data needs, revolutionizing order management with lifecycle tracking, real-time dashboards, and native integrations like DocuSign and QuickBooks. Simplified customer support and accessible order status enhance transparency and streamline operations.",
     logo: "/solutions/omsflow-logo.png",
-    image: "/solutions/ementoring-bg.png",
+    image: "/solutions/ementoring-bg.jpg",
   },
 ];
 
@@ -161,22 +161,22 @@ export const cultureValues: CultureValue[] = [
   {
     title: "Endurance",
     body: "Sometimes pathways are not well laid out and you need extra hands to clear obstacles. We are always available and provide support during every stage of the solution development and beyond.",
-    image: "/culture/endurance.png",
+    image: "/culture/endurance.jpg",
   },
   {
     title: "Courage",
     body: "We know our strengths / limitations and our ability to say 'No' is liked and respected by our clients. During those times, we look out for alternative options and ensure customer success.",
-    image: "/culture/courage.png",
+    image: "/culture/courage.jpg",
   },
   {
     title: "Persistence",
     body: "Difficult terrains like legacy applications, systems integration can cause a heartburn. We as true partners would do heavy lifting, enable transition, train the team and ensure completion of the mission.",
-    image: "/culture/persistence.png",
+    image: "/culture/persistence.jpg",
   },
   {
     title: "Diligence",
     body: "We empathize with customer situations, provide consulting service, work with third party vendors and our primary goal is to achieve a permanent, sustainable solution.",
-    image: "/culture/diligence.png",
+    image: "/culture/diligence.jpg",
   },
   {
     title: "Tranquility",
@@ -363,7 +363,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025",
     excerpt:
       "Discover how AI and ML are revolutionizing businesses by driving innovation, improving efficiency, and redefining success. Learn about the power of smart technology today!",
-    image: "/blog/ai-ml.png",
+    image: "/blog/ai-ml.jpg",
     sections: [
       {
         body: "Artificial Intelligence (AI) and Machine Learning (ML) have become transformative forces in the modern business landscape. With the ability to analyze massive datasets, automate processes, and deliver actionable insights, AI in business is redefining how organizations achieve success.",
@@ -420,7 +420,7 @@ export const blogPosts: BlogPost[] = [
     date: "February 14, 2025",
     excerpt:
       "Discover 10 proven ways digital transformation enhances efficiency and maximizes profits. Learn how technology-driven strategies can streamline operations and drive business growth.",
-    image: "/blog/digital-transformation-tips.png",
+    image: "/blog/digital-transformation-tips.jpg",
     sections: [
       {
         body: "In today's fast-paced digital era, businesses are under constant pressure to innovate and optimize. A digital transformation strategy has emerged as a powerful approach to enhance productivity, streamline operations, and increase profitability.",
@@ -534,7 +534,7 @@ export const insightPosts: InsightPost[] = [
       {
         heading: "Risk Score Calculation",
         body: "Our Magic Formula uses the primary attributes to calculate the Risk Score using the Risk Rating value of the primary attribute multiplied by weight of attribute. You can modify the Risk score by changing the weight.",
-        image: "/insights/risk-score-formula.png",
+        image: "/insights/risk-score-formula.jpg",
       },
       {
         heading: "1. Change Impact — [weight: 3]",
@@ -604,12 +604,12 @@ export const insightPosts: InsightPost[] = [
       {
         heading: "Risk Score Analysis",
         body: "RFC Risk Score = Total Sum [Weight * Risk Rating] of all attributes. If you use the Weight & Risk ratings defined above, RFC Risk Score can range between 10 and 40.",
-        image: "/insights/change-risk.png",
+        image: "/insights/change-risk.jpg",
       },
       {
         heading: "Change Requests with corresponding Risk Score -- BOSS",
         body: "Change Management becomes easy once we associate a Risk Score to every RFC. Companies can define their own workflow rules to allow Technicians work on the RFCs with a Risk Score below threshold levels. For example, technicians can work on change requests with a score less than 18 without approval from CAB.",
-        image: "/insights/risk-analysis-table.png",
+        image: "/insights/risk-analysis-table.jpg",
       },
       {
         body: "Risk Score helps CAB to focus on important changes. Users may consider additional factors like application dependency, environment, and connectivity to make prudent decisions.",

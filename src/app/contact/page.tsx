@@ -44,18 +44,67 @@ export default function ContactPage() {
           </defs>
         </svg>
 
-        <div className="relative mx-auto max-w-7xl px-6 py-10 lg:py-14">
-          <p className="text-xs font-semibold tracking-widest text-primary">
-            GET IN TOUCH
-          </p>
-          <h1 className="mt-4 max-w-2xl text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Let&apos;s start a conversation.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/70">
-            Our team of transformation experts is ready to help you plan your
-            next move whether that&apos;s a quick question or a full
-            roadmap.
-          </p>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-6 py-8 lg:grid-cols-[1.2fr_1fr] lg:py-10">
+          <div>
+            <p className="text-xs font-semibold tracking-widest text-primary">
+              GET IN TOUCH
+            </p>
+            <h1 className="mt-4 max-w-2xl text-4xl font-extrabold tracking-tight sm:text-5xl">
+              Let&apos;s start a conversation.
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/70">
+              Our team of transformation experts is ready to help you plan your
+              next move whether that&apos;s a quick question or a full
+              roadmap.
+            </p>
+          </div>
+
+          <svg
+            className="hidden w-full max-w-sm justify-self-center lg:block"
+            viewBox="10 40 400 285"
+            fill="none"
+            aria-hidden="true"
+          >
+            <ellipse cx="210" cy="300" rx="150" ry="18" fill="#000" opacity="0.25" />
+
+            <g className="animate-[float_5s_ease-in-out_infinite]">
+              <rect x="55" y="55" width="230" height="170" rx="18" fill="#131a3a" stroke="#2f54eb" strokeOpacity="0.5" strokeWidth="2" />
+              <path
+                d="M55 73 L170 155 L285 73"
+                stroke="#2f54eb"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              <circle cx="170" cy="140" r="4" fill="#2f54eb" />
+            </g>
+
+            <g className="animate-[float_4s_ease-in-out_infinite_0.6s]">
+              <rect x="205" y="150" width="150" height="100" rx="16" fill="#2f54eb" />
+              <circle cx="235" cy="185" r="6" fill="#fff" opacity="0.9" />
+              <circle cx="260" cy="185" r="6" fill="#fff" opacity="0.6" />
+              <circle cx="285" cy="185" r="6" fill="#fff" opacity="0.35" />
+              <rect x="223" y="208" width="110" height="8" rx="4" fill="#fff" opacity="0.25" />
+              <rect x="223" y="223" width="70" height="8" rx="4" fill="#fff" opacity="0.25" />
+            </g>
+
+            <g className="animate-[float_6s_ease-in-out_infinite_0.3s]">
+              <circle cx="72" cy="215" r="26" fill="#16a34a" />
+              <path
+                d="M62 215l7 7 12-14"
+                stroke="#fff"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </g>
+
+            <circle cx="345" cy="70" r="5" fill="#2f54eb" opacity="0.6" />
+            <circle cx="30" cy="120" r="4" fill="#16a34a" opacity="0.6" />
+            <circle cx="365" cy="200" r="3.5" fill="#fff" opacity="0.4" />
+          </svg>
         </div>
       </section>
 

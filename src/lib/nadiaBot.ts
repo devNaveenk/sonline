@@ -1,5 +1,5 @@
 import { services, work, companyInfo, payrollSystems } from "./content";
-import { teamMembers } from "./detailPagesContent";
+import { teamMembers, solutionDetails, createFramework } from "./detailPagesContent";
 
 const founder = teamMembers.find((m) => m.bio.toLowerCase().includes("founding member"));
 const cto = teamMembers.find((m) => m.role === "Chief Technology Officer");
@@ -45,17 +45,45 @@ const intents: BotIntent[] = [
     },
   },
   {
+    keywords: ["solution", "solutions", "platform", "platforms"],
+    reply: {
+      text: `Our flagship platforms: ${solutionDetails.map((s) => s.title).join(", ")}. Ask me about any one of them, or check out the full breakdown.`,
+      action: { label: "Explore Solutions", href: "/solutions" },
+    },
+  },
+  {
     keywords: ["edukadu"],
     reply: {
-      text: "Edukadu is our AI/ML-driven e-learning platform for teaching, tracking, and engaging learners.",
+      text: solutionDetails.find((s) => s.title === "Edukadu")?.body ?? "",
       action: { label: "Explore Solutions", href: "/solutions" },
     },
   },
   {
     keywords: ["ballotda", "ballot", "election"],
     reply: {
-      text: "BallotDA is our election management platform for poll worker onboarding, training, scheduling, and payroll handoff.",
+      text: solutionDetails.find((s) => s.title === "BallotDA")?.body ?? "",
       action: { label: "Explore Solutions", href: "/solutions" },
+    },
+  },
+  {
+    keywords: ["lga search", "lga"],
+    reply: {
+      text: solutionDetails.find((s) => s.title === "LGA Search")?.body ?? "",
+      action: { label: "Explore Solutions", href: "/solutions" },
+    },
+  },
+  {
+    keywords: ["oms flow", "oms", "order management"],
+    reply: {
+      text: solutionDetails.find((s) => s.title === "OMS Flow")?.body ?? "",
+      action: { label: "Explore Solutions", href: "/solutions" },
+    },
+  },
+  {
+    keywords: ["create framework", "create methodology"],
+    reply: {
+      text: `Our CREATE framework guides transformation in six steps: ${createFramework.map((s) => s.title).join(", ")}. It helps evaluate current systems, cut redundancies, and chart a path that fits your long-term goals.`,
+      action: { label: "See the CREATE Framework", href: "/solutions" },
     },
   },
   {
@@ -132,14 +160,20 @@ const intents: BotIntent[] = [
   },
 ];
 
+function matchesKeyword(lower: string, keyword: string): boolean {
+  const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`\\b${escaped}\\b`, "i").test(lower);
+}
+
 /**
  * Fast, deterministic keyword match — runs instantly with no network call.
+ * Word-boundary matching avoids false positives like "framework" matching "work".
  * Only when this returns null do we fall back to the slower AI layer.
  */
 export function matchBotIntent(message: string): BotReply | null {
   const lower = message.toLowerCase();
   for (const intent of intents) {
-    if (intent.keywords.some((keyword) => lower.includes(keyword))) {
+    if (intent.keywords.some((keyword) => matchesKeyword(lower, keyword))) {
       return intent.reply;
     }
   }

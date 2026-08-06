@@ -167,6 +167,25 @@ export const whyWorkWithUs: IconCardItem[] = [
   },
 ];
 
+export interface ClientLogo {
+  name: string;
+  logo: string;
+}
+
+export const clientLogos: ClientLogo[] = [
+  { name: "Fulton County, GA", logo: "/clients/fulton.png" },
+  { name: "Epstein School", logo: "/clients/epsteinschool.png" },
+  { name: "City of Osawatomie", logo: "/clients/city_of_osawatomie.png" },
+  { name: "Sortimo", logo: "/clients/sortimo.png" },
+  { name: "White County", logo: "/clients/whitecountyschool.png" },
+  { name: "Southern States LLC", logo: "/clients/southerstates.png" },
+  { name: "Office of the Attorney General", logo: "/clients/office_of_the_attorney_general.png" },
+  { name: "ARCO", logo: "/clients/arco.jpg" },
+  { name: "IWM Energy", logo: "/clients/energy.jpg" },
+  { name: "XCEL — A Mentoring Network", logo: "/clients/xcel.png" },
+  { name: "Florida Supervisors of Elections", logo: "/clients/florida_supervisors_of_election.png" },
+];
+
 export const testimonials: TestimonialItem[] = [
   {
     quote:
@@ -245,7 +264,7 @@ export const testimonials: TestimonialItem[] = [
     name: "Cynthia Brown",
     role: "Chief Executive Officer",
     organization: "IWM Energy",
-    logo: "/clients/energy.png",
+    logo: "/clients/energy.jpg",
   },
   {
     quote:

@@ -34,7 +34,7 @@ export default function ServicesPage() {
           {serviceDetails.map((service, index) => (
             <div
               key={service.title}
-              className={`grid grid-cols-1 items-center gap-8 lg:grid-cols-2 ${
+              className={`group grid grid-cols-1 items-center gap-8 rounded-3xl border border-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl lg:grid-cols-2 lg:p-8 ${
                 index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
@@ -44,14 +44,18 @@ export default function ServicesPage() {
                   alt={service.title}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  priority={index === 0}
                 />
               </div>
               <div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                  <service.icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-primary group-hover:shadow-md group-hover:shadow-primary/30">
+                  <service.icon
+                    className="h-6 w-6 text-primary transition-colors duration-300 group-hover:text-white"
+                    aria-hidden="true"
+                  />
                 </div>
-                <h2 className="mt-5 text-2xl font-bold text-ink sm:text-3xl">
+                <h2 className="mt-5 text-2xl font-bold text-ink transition-colors duration-300 group-hover:text-primary sm:text-3xl">
                   {service.title}
                 </h2>
                 <p className="mt-2 text-base font-medium text-primary">{service.tagline}</p>

@@ -17,6 +17,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { matchBotIntent, type BotAction } from "@/lib/nadiaBot";
+import { hasCookieConsent, COOKIE_CONSENT_EVENT } from "@/lib/cookieConsent";
 
 interface ChatMessage {
   id: number;
@@ -56,8 +57,24 @@ export default function NadiaChatWidget() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setIsVisible(true), 700);
-    return () => window.clearTimeout(timer);
+    // Stay hidden until the cookie banner is dismissed so the two widgets
+    // never fight for the same corner of the screen, especially on mobile.
+    let timer: number | undefined;
+
+    function reveal() {
+      timer = window.setTimeout(() => setIsVisible(true), 700);
+    }
+
+    if (hasCookieConsent()) {
+      reveal();
+    } else {
+      window.addEventListener(COOKIE_CONSENT_EVENT, reveal, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener(COOKIE_CONSENT_EVENT, reveal);
+      if (timer) window.clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {
@@ -120,7 +137,9 @@ export default function NadiaChatWidget() {
   return (
     <div
       className={`fixed bottom-6 right-6 z-50 flex flex-col items-end transition-all duration-300 ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none translate-y-4 opacity-0"
       }`}
     >
       {isOpen && (

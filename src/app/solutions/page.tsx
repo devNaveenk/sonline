@@ -36,12 +36,12 @@ export default function SolutionsPage() {
           {createFramework.map((step) => (
             <div
               key={step.step}
-              className="rounded-2xl border border-border bg-white p-6"
+              className="group rounded-2xl border border-border bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
                 {step.step}
               </span>
-              <h3 className="mt-4 text-lg font-semibold text-ink">{step.title}</h3>
+              <h3 className="mt-4 text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-primary">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {step.body}
               </p>
@@ -70,7 +70,7 @@ export default function SolutionsPage() {
           {solutionDetails.map((solution, index) => (
             <div
               key={solution.title}
-              className={`grid grid-cols-1 items-center gap-8 rounded-2xl bg-white p-6 shadow-sm lg:grid-cols-2 lg:p-8 ${
+              className={`group grid grid-cols-1 items-center gap-8 rounded-2xl border border-transparent bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-2xl lg:grid-cols-2 lg:p-8 ${
                 index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
@@ -80,11 +80,11 @@ export default function SolutionsPage() {
                   alt={solution.title}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </div>
               <div>
-                <div className="inline-flex h-12 items-center rounded-lg bg-muted-bg px-3">
+                <div className="inline-flex h-12 items-center rounded-lg bg-muted-bg px-3 transition-colors duration-300 group-hover:bg-primary/10">
                   <Image
                     src={solution.logo}
                     alt={`${solution.title} logo`}
@@ -93,7 +93,7 @@ export default function SolutionsPage() {
                     className="h-8 w-auto object-contain"
                   />
                 </div>
-                <h3 className="mt-4 text-xl font-bold text-ink">{solution.title}</h3>
+                <h3 className="mt-4 text-xl font-bold text-ink transition-colors duration-300 group-hover:text-primary">{solution.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {solution.body}
                 </p>
@@ -105,7 +105,7 @@ export default function SolutionsPage() {
                     className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide text-primary hover:text-primary-dark cursor-pointer"
                   >
                     LEARN MORE
-                    <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                   </a>
                 )}
               </div>

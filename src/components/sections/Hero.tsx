@@ -11,13 +11,13 @@ export function Hero() {
             <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
             EXPERIENCE. INTEGRATE. VISUALIZE. ACT.
           </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 text-4xl font-extrabold leading-[1.02] tracking-tight text-ink sm:text-5xl lg:text-6xl">
             Transforming
             <span className="block text-muted-foreground">
               Possibilities into Reality.
             </span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
             Sonline is your trusted catalyst for reinvention and growth.
             Backed by over a decade of expertise, we deliver transformative
             solutions that integrate strategy, innovation, AI, and technology

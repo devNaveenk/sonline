@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Cookie } from "lucide-react";
-
-const STORAGE_KEY = "sonline-cookie-consent";
+import { COOKIE_CONSENT_KEY, COOKIE_CONSENT_EVENT } from "@/lib/cookieConsent";
 
 export default function CookieConsentBanner() {
   const [visible, setVisible] = useState(false);
@@ -12,16 +11,19 @@ export default function CookieConsentBanner() {
   useEffect(() => {
     // Reading localStorage must happen post-mount to avoid a server/client
     // render mismatch, so this is the correct (not cascading) use of an effect.
-    const stored = window.localStorage.getItem(STORAGE_KEY);
+    const stored = window.localStorage.getItem(COOKIE_CONSENT_KEY);
     if (!stored) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisible(true);
+    } else {
+      window.dispatchEvent(new Event(COOKIE_CONSENT_EVENT));
     }
   }, []);
 
   function handleChoice(choice: "accepted" | "declined") {
-    window.localStorage.setItem(STORAGE_KEY, choice);
+    window.localStorage.setItem(COOKIE_CONSENT_KEY, choice);
     setVisible(false);
+    window.dispatchEvent(new Event(COOKIE_CONSENT_EVENT));
   }
 
   if (!visible) return null;

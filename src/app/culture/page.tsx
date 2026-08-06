@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { TeamMarquee } from "@/components/TeamMarquee";
 import { cultureValues, teamMembers } from "@/lib/detailPagesContent";
 
 export const metadata: Metadata = {
@@ -26,19 +27,20 @@ export default function CulturePage() {
           {cultureValues.map((value) => (
             <div
               key={value.title}
-              className="overflow-hidden rounded-2xl border border-border bg-white"
+              className="group overflow-hidden rounded-2xl border border-border bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl"
             >
-              <div className="relative aspect-[16/10] bg-muted-bg">
+              <div className="relative aspect-[16/10] overflow-hidden bg-muted-bg">
                 <Image
                   src={value.image}
                   alt={value.title}
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-ink">{value.title}</h3>
+                <h3 className="text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-primary">{value.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {value.body}
                 </p>
@@ -70,30 +72,15 @@ export default function CulturePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-10 lg:py-14">
-        <p className="text-xs font-semibold tracking-widest text-primary">OUR TEAM</p>
-        <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
-          The people behind every transformation.
-        </h2>
-        <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-          {teamMembers.map((member) => (
-            <div key={member.name} className="text-center">
-              <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full bg-muted-bg">
-                <Image
-                  src={member.photo}
-                  alt={member.name}
-                  fill
-                  sizes="96px"
-                  className="object-cover"
-                />
-              </div>
-              <p className="mt-3 text-sm font-semibold text-ink">{member.name}</p>
-              <p className="text-xs text-primary">{member.role}</p>
-              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
-                {member.bio}
-              </p>
-            </div>
-          ))}
+      <section className="py-10 lg:py-14">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className="text-xs font-semibold tracking-widest text-primary">OUR TEAM</p>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+            The people behind every transformation.
+          </h2>
+        </div>
+        <div className="mt-8">
+          <TeamMarquee members={teamMembers} />
         </div>
       </section>
     </>
