@@ -16,6 +16,8 @@ import {
   AlertTriangle,
   Wrench,
   TrendingUp,
+  Cpu,
+  GraduationCap,
 } from "lucide-react";
 import type {
   NavItem,
@@ -101,6 +103,21 @@ export const services: IconCardItem[] = [
     icon: Gauge,
     title: "Business Process Optimization",
     body: "Streamline operations, reduce costs, and enhance productivity through innovative process redesign.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security Consulting",
+    body: "Assess risk, harden infrastructure, and build compliance-ready security practices across your organization.",
+  },
+  {
+    icon: Cpu,
+    title: "AI Custom App Development",
+    body: "Build bespoke AI-powered applications tailored to your workflows, from prototype to production.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Training",
+    body: "Hands-on training programs that upskill your team on new platforms, workflows, and technologies.",
   },
 ];
 
